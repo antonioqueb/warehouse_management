@@ -1,0 +1,24 @@
+<.header>
+  Listing Areas
+  <:actions>
+    <.link href={~p"/areas/new"}>
+      <.button>New Area</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="areas" rows={@areas} row_click={&JS.navigate(~p"/areas/#{&1}")}>
+  <:col :let={area} label="Name"><%= area.name %></:col>
+  <:col :let={area} label="Location"><%= area.location %></:col>
+  <:action :let={area}>
+    <div class="sr-only">
+      <.link navigate={~p"/areas/#{area}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/areas/#{area}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={area}>
+    <.link href={~p"/areas/#{area}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

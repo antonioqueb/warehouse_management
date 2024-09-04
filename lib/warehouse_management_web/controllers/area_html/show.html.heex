@@ -1,0 +1,16 @@
+<.header>
+  Area <%= @area.id %>
+  <:subtitle>This is a area record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/areas/#{@area}/edit"}>
+      <.button>Edit area</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @area.name %></:item>
+  <:item title="Location"><%= @area.location %></:item>
+</.list>
+
+<.back navigate={~p"/areas"}>Back to areas</.back>
